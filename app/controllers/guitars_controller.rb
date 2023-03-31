@@ -9,5 +9,17 @@ class GuitarsController < ApplicationController
     @guitar = Guitar.find_by(id: params["id"])
     render :show
   end
+
+  def create
+    @guitar = Guitar.new(
+      brand: "Fender",
+      name: "Stratocaster",
+      color: "Tobacco Sunburst",
+      fretboard: "rosewood"
+    )
+    
+    @guitar.save
+    render :show
+  end
   
 end
