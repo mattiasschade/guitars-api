@@ -11,12 +11,11 @@ class GuitarsController < ApplicationController
   end
 
   def create
-    @guitar = Guitar.new(
-      brand: "Fender",
-      name: "Stratocaster",
-      color: "Tobacco Sunburst",
-      fretboard: "rosewood"
-    )
+    @guitar = Guitar.new
+    @guitar.brand = params[:brand]
+    @guitar.name = params[:name]
+    @guitar.color = params[:color]      
+    @guitar.fretboard = params[:fretboard]
     
     @guitar.save
     render :show
