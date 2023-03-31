@@ -20,5 +20,22 @@ class GuitarsController < ApplicationController
     @guitar.save
     render :show
   end
+
+  def update
+    @guitar = Guitar.find_by(id: params["id"])
+    @guitar.brand = params[:brand] || @guitar.brand
+    @guitar.name = params[:name] || @guitar.name
+    @guitar.color = params[:color] || @guitar.color      
+    @guitar.fretboard = params[:fretboard] || @guitar.fretboard
+
+    @guitar.save
+    render :show
+  end
+
+  def destroy
+    @guitar = Guitar.find_by(id: params["id"])
+    @guitar.destroy
+
+    render json: {message: "This guitar has been successfully deleted from the database"}
   
 end
