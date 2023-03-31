@@ -37,5 +37,5 @@ class GuitarsController < ApplicationController
     @guitar.destroy
 
     render json: {message: "This guitar has been successfully deleted from the database"}
-  
+  end
 end
